@@ -1,5 +1,6 @@
 import express from "express";
 import girlsRouter from "./routes/girlsClothing.js";
+import productRouter from "./routes/productDetails.js";
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json({ extended: true }));
 
 //API Routes
 app.use("/api/girlsClothing", girlsRouter);
+app.use("/api/productDetails", productRouter);
 
 app.get("/", (req, res) => {
   res.send("SBA318_Express_Server_Application");
@@ -21,7 +23,6 @@ app.use((req, res) => {
   res.status(404);
   res.json({ error: "Resource Not Found" });
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);

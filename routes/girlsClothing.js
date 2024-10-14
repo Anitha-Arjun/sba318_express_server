@@ -22,12 +22,7 @@ girlsRouter.get("/:id", (req, res, next) => {
 
 //POST
 girlsRouter.post("/", (req, res, next) => {
-  if (
-    req.body.product_name &&
-    req.body.product_id &&
-    req.body.price &&
-    req.body.product_description
-  ) {
+  if (req.body.product_name && req.body.product_id && req.body.price) {
     if (girlsClothing.find((i) => i.product_name == req.body.product_name)) {
       res.json({ error: "Item already Exist" });
       return;
@@ -43,7 +38,6 @@ girlsRouter.post("/", (req, res, next) => {
       product_name: req.body.product_name,
       product_id: req.body.product_id,
       price: req.body.price,
-      product_description: req.body.product_description,
     };
 
     girlsClothing.push(newItem);
@@ -55,7 +49,7 @@ girlsRouter.post("/", (req, res, next) => {
 });
 
 //PATCH OR UPDATE by id
-girlsRouter.patch("/:id", (req, res) => {
+girlsRouter.patch("/:id", (req, res, next) => {
   const itemIndex = girlsClothing.findIndex((g) => g.id == req.params.id);
 
   if (itemIndex !== -1) {
@@ -63,12 +57,13 @@ girlsRouter.patch("/:id", (req, res) => {
     girlsClothing[itemIndex] = updatedItem;
     res.json(updatedItem);
   } else {
-    res.status(404).json({ error: "Item not found" });
+    next();
+    // res.status(404).json({ error: "Item not found" });
   }
 });
 
 //DELETE by id
-girlsRouter.delete("/:id", (req, res) => {
+girlsRouter.delete("/:id", (req, res, next) => {
   const deleteByItemId = girlsClothing.find((g, i) => {
     if (g.id == req.params.id) {
       girlsClothing.splice(i, 1);
