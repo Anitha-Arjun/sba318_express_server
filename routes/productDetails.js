@@ -22,8 +22,8 @@ productRouter.get("/:id", (req, res, next) => {
 
 //POST
 productRouter.post("/", (req, res, next) => {
-  if (req.body.girlsId && req.body.size && req.body.product_description) {
-    if (productDetails.find((i) => i.girlsId == req.body.girlsId)) {
+  if (req.body.dress_Id && req.body.size && req.body.product_description) {
+    if (productDetails.find((i) => i.dress_Id == req.body.dress_Id)) {
       res.json({ error: "Item already Exist" });
       return;
     }
@@ -35,7 +35,7 @@ productRouter.post("/", (req, res, next) => {
 
     const newItem = {
       id: newId,
-      girlsId: req.body.girlsId,
+      dress_Id: req.body.dress_Id,
       size: req.body.size,
       product_description: req.body.product_description,
     };

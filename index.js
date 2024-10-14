@@ -1,6 +1,7 @@
 import express from "express";
-import girlsRouter from "./routes/girlsClothing.js";
+import dressRouter from "./routes/dress.js";
 import productRouter from "./routes/productDetails.js";
+import locationRouter from "./routes/location.js";
 
 const app = express();
 
@@ -11,8 +12,9 @@ const PORT = 3000;
 app.use(express.json({ extended: true }));
 
 //API Routes
-app.use("/api/girlsClothing", girlsRouter);
+app.use("/api/dress", dressRouter);
 app.use("/api/productDetails", productRouter);
+app.use("/api/location", locationRouter);
 
 app.get("/", (req, res) => {
   res.send("SBA318_Express_Server_Application");
