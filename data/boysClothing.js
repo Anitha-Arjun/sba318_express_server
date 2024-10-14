@@ -1,6 +1,6 @@
 export const boysClothing = [
   {
-    category: Boys_Fashion,
+    id: 1,
     product_name: "Tees",
     product_id: 1,
     price: "$5.00",
@@ -14,9 +14,9 @@ export const boysClothing = [
     },
   },
   {
-    category: Boys_Fashion,
+    id: 2,
     product_name: "Jeans",
-    product_id: 2,
+    product_id: 1,
     price: "$15.00",
     image:
       "/Users/arjunmurugan/Desktop/2024-35-RTT/sba318_express_server/public/boys/jean.jpeg",
@@ -28,9 +28,9 @@ export const boysClothing = [
     },
   },
   {
-    category: Boys_Fashion,
+    id: 3,
     product_name: "Activewear",
-    product_id: 3,
+    product_id: 2,
     price: "$25.00",
     image:
       "/Users/arjunmurugan/Desktop/2024-35-RTT/sba318_express_server/public/boys/activewear.jpeg",
@@ -42,9 +42,9 @@ export const boysClothing = [
     },
   },
   {
-    category: Boys_Fashion,
+    id: 4,
     product_name: "Pajamas",
-    product_id: 4,
+    product_id: 2,
     price: "$17.00",
     image:
       "/Users/arjunmurugan/Desktop/2024-35-RTT/sba318_express_server/public/boys/pajama.jpeg",
@@ -56,9 +56,9 @@ export const boysClothing = [
     },
   },
   {
-    category: Boys_Fashion,
+    id: 3,
     product_name: "Sets",
-    product_id: 5,
+    product_id: 3,
     price: "$12.00",
     image:
       "/Users/arjunmurugan/Desktop/2024-35-RTT/sba318_express_server/public/boys/set.jpeg",
@@ -70,5 +70,3 @@ export const boysClothing = [
     },
   },
 ];
-
-export default boysClothing;
