@@ -10,7 +10,7 @@ html
             const form = document.getElementById('addProductForm');
             
             form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
             const formData = new FormData(form);
             const jsonData = {};
@@ -29,7 +29,7 @@ html
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                // You can add additional code here to handle the response
+                form.reset();
             })
             .catch((error) => {
                 console.error('Error:', error);
