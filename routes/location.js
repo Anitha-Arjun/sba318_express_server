@@ -46,6 +46,7 @@ locationRouter.post("/", (req, res) => {
 
     location.push(newLocation);
     res.json(location[location.length - 1]);
+    res.redirect("/");
   }
 });
 

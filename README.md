@@ -1,0 +1,1 @@
+This application created using node and express which performs GET, POST, UPDATE and DELETE on the API of products. Created a template engine to render the views. An error middleware as been created to handle errors. Included a form within a rendered view that allows for interaction with your RESTful API.

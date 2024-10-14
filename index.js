@@ -7,9 +7,20 @@ const app = express();
 
 const PORT = 3000;
 
+//set template enginge
+app.set("view engine", "pug");
+app.set("views", "./views");
+
+app.use(express.static("public"));
+
 //Middleware
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ extended: true }));
+
+//Routes
+app.get("/", (req, res) => {
+  res.render("index", { title: "SBA318_Express_Server" });
+});
 
 //API Routes
 app.use("/api/dress", dressRouter);

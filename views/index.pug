@@ -1,0 +1,49 @@
+doctype html 
+html 
+   head 
+     title = 'Assignment'
+     link(rel="stylesheet", href="style.css")
+   body 
+     h1='SBA318_Express_Server'
+     script.
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('addProductForm');
+            
+            form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(form);
+            const jsonData = {};
+
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+
+            fetch('/api/location', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // You can add additional code here to handle the response
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+            });
+        });
+
+     form(id="addProductForm", method="post")
+       p ProductDetails_Id:
+         input(type="text" name="productDetails_id" placeholder="Product Details ID")
+       p Dress_Id:
+         input(type="text" name="dress_Id" placeholder="Dress ID")
+       p Store:
+         input(type="text" name="store" placeholder="Store")
+       p Zipcode:
+         input(type="text" name="zipcode" placeholder="Zipcode")
+       button(type="submit") Add
